@@ -211,7 +211,11 @@ instance CSVeable MapRow where
         loop (headers, a)
 
       -- Fill headers if not yet filled
-      procRow [] !acc' = rowParser csvs >>= (\(Just hs) -> loop (hs, acc'))
+      procRow [] !acc' = do
+        r <- rowParser csvs
+        case r of
+          Nothing -> loop ([], acc')
+          Just hs -> loop (hs, acc')
 
       -- Process starting w/ the second row
       procRow !headers !acc' = rowParser csvs >>= 
