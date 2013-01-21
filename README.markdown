@@ -1,5 +1,15 @@
 # README
 
+## Deprecation Notice
+
+This package has been (kind of) deprecated. My continued work now lies
+in the [csv-conduit](https://github.com/ozataman/csv-conduit) package,
+as conduit ended up creating a pretty large network of libraries that
+we can interact with. We can easily plug into other conduits, enabling
+us to, for example, incremental parse over the network or read a CSV
+file and shove results into a Chan incrementally.
+
+
 ## CSV Files and Haskell
 
 CSV files are the de-facto standard in many cases of data transfer,
